@@ -66,7 +66,7 @@ echo [Setting] Creating Shortcuts...
 powershell -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%USERPROFILE%\Desktop\DeviceManager.lnk'); $s.TargetPath = 'devmgmt.msc'; $s.Save(); $s2 = $ws.CreateShortcut('%USERPROFILE%\Desktop\ControlPanel.lnk'); $s2.TargetPath = 'control.exe'; $s2.Save();"
 
 :: ==========================================
-:: 4. Install Applications
+:: 4. Install Applications by Winget
 :: ==========================================
 echo.
 echo [Install] Installing apps and fonts via Winget...
@@ -75,18 +75,62 @@ echo.
 
 winget import --import-file "myapps.json" --accept-package-agreements --accept-source-agreements
 
-:: Launch Sticky Notes
+echo.
+echo [Install 1/4] Installing Microsoft Sticky Notes...
+winget install --id 9NBLGGH4QGHW --source msstore --accept-package-agreements
+
+
+:: ==========================================
+:: 5. Install Application by Chocolatey 
+:: ==========================================
+echo.
+echo [Install 3/5] Installing Chocolatey...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
+set "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+
+echo.
+echo [Install 4/5] Installing Dev Tools via Chocolatey...
+choco install -y python3 arduino gimp inkscape firealpaca meshlab sysinternals
+
+echo.
+echo [Install KiCad] Installing versions 5.1.12 and 9.0.7...
+choco install kicad --version 5.1.12 -y
+choco install kicad --version 9.0.7 -y
+
+:: Fonts
+echo.
+echo [Install Fonts] Installing Fonts...
+choco install -y google-noto-sans-cjk-jp google-noto-serif-cjk-jp
+choco install -y hackgen-nf udev-gothic ricty-diminished
+choco install -y jost
+
+:: ==========================================
+:: 5. Manual Install Helper
+:: ==========================================
+echo.
+echo [Install 5/5] Opening Download Pages for Login-Required Apps...
+echo.
+
+:: STM32 & Fusion
+start https://www.st.com/en/development-tools/stm32cubeide.html
+start https://www.st.com/en/development-tools/stm32cubeprog.html
+start https://www.autodesk.com/products/fusion-360/personal
+
+:: ==========================================
+:: Completion
+:: ==========================================
 echo.
 echo [Post-Install] Launching Sticky Notes...
 start shell:AppsFolder\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe!App
 
 echo.
 echo ==========================================
-echo  All tasks completed.
+echo  All Setup Completed!
 echo.
 echo  [IMPORTANT]
-echo  1. Please RESTART your PC to apply settings.
-echo  2. Open "PowerToys" -> "Keyboard Manager"
-echo     to set Ctrl+Space for IME toggle.
+echo  1. Please install opened web pages (STM32, Fusion) manually.
+echo  2. RESTART your PC to apply settings.
+echo  3. Open "PowerToys" -> "Keyboard Manager"
+echo     to set Ctrl+Space for IME toggle manually.
 echo ==========================================
 pause
