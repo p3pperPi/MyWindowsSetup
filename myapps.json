@@ -13,7 +13,7 @@
         { "PackageIdentifier": "Kitware.CMake" },
         
         { "PackageIdentifier": "Arduino.IDE" },
-        { "PackageIdentifier": "STMicroelectronics.STM32CubeIDE" },
+        { "PackageIdentifier": "STMicroelectronics.STM32CubeIDE" ,"PackageVersion": "1.16.1" },
         { "PackageIdentifier": "STMicroelectronics.STM32CubeProgrammer" },
         { "PackageIdentifier": "KiCad.KiCad" ,"PackageVersion": "5.1.12" },
         { "PackageIdentifier": "KiCad.KiCad" ,"PackageVersion": "9.0.7" },
