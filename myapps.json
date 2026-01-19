@@ -5,7 +5,7 @@
     {
       "packages": [
         { "PackageIdentifier": "Microsoft.VisualStudioCode" },
-        { "PackageIdentifier": "Microsoft.VisualStudio.2022.Community" },
+        { "PackageIdentifier": "Microsoft.VisualStudio.2026.Community" },
         { "PackageIdentifier": "Notepad++.Notepad++" },
         { "PackageIdentifier": "Git.Git" },
         { "PackageIdentifier": "GitHub.GitHubDesktop" },
