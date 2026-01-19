@@ -166,7 +166,7 @@ echo.
 
 
 
-winget import --import-file "engineer_apps.json" --accept-package-agreements --accept-source-agreements
+winget import --import-file "myapps.json" --accept-package-agreements --accept-source-agreements
 
 
 
