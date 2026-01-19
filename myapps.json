@@ -2,13 +2,13 @@
 
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
 
-  "creationDate": "2026-01-20T12:00:00.000Z",
+  "CreationDate": "2026-01-20T12:00:00.000Z",
 
-  "sources": [
+  "Sources": [
 
     {
 
-      "packages": [
+      "Packages": [
 
         { "PackageIdentifier": "Microsoft.VisualStudioCode" },
 
@@ -128,13 +128,13 @@
 
       "sourceDetails": {
 
-        "argument": "https://cdn.winget.microsoft.com/cache",
+        "Argument": "https://cdn.winget.microsoft.com/cache",
 
-        "identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+        "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
 
-        "name": "winget",
+        "Name": "winget",
 
-        "type": "Microsoft.PreIndexed.Package"
+        "Type": "Microsoft.PreIndexed.Package"
 
       }
 
@@ -142,19 +142,19 @@
 
   ],
 
-  "winGetVersion": "1.9.0"
+  "WinGetVersion": "1.9.0"
 
 }{
 
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
 
-  "creationDate": "2026-01-20T12:00:00.000Z",
+  "CreationDate": "2026-01-20T12:00:00.000Z",
 
-  "sources": [
+  "Sources": [
 
     {
 
-      "packages": [
+      "Packages": [
 
         { "PackageIdentifier": "Microsoft.VisualStudioCode" },
 
@@ -300,13 +300,13 @@
 
       "sourceDetails": {
 
-        "argument": "https://cdn.winget.microsoft.com/cache",
+        "Argument": "https://cdn.winget.microsoft.com/cache",
 
-        "identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+        "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
 
-        "name": "winget",
+        "Name": "winget",
 
-        "type": "Microsoft.PreIndexed.Package"
+        "Type": "Microsoft.PreIndexed.Package"
 
       }
 
@@ -314,6 +314,6 @@
 
   ],
 
-  "winGetVersion": "1.9.0"
+  "WinGetVersion": "1.9.0"
 
 }
