@@ -1,160 +1,319 @@
-{
-  "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "creationDate": "2026-01-20T12:00:00.000Z",
-  "sources": [
-    {
-      "packages": [
-        { "PackageIdentifier": "Microsoft.VisualStudioCode" },
-        { "PackageIdentifier": "Microsoft.VisualStudio.2026.Community" },
-        { "PackageIdentifier": "Notepad++.Notepad++" },
-        { "PackageIdentifier": "Git.Git" },
-        { "PackageIdentifier": "GitHub.GitHubDesktop" },
-        { "PackageIdentifier": "Python.Python.3" },
-        { "PackageIdentifier": "Kitware.CMake" },
-        
-        { "PackageIdentifier": "Arduino.IDE" },
-        { "PackageIdentifier": "STMicroelectronics.STM32CubeIDE" ,"PackageVersion": "1.16.1" },
-        { "PackageIdentifier": "STMicroelectronics.STM32CubeProgrammer" },
-        { "PackageIdentifier": "KiCad.KiCad" ,"PackageVersion": "5.1.12" },
-        { "PackageIdentifier": "KiCad.KiCad" ,"PackageVersion": "9.0.7" },
-        { "PackageIdentifier": "AnalogDevices.LTspice" },
-        { "PackageIdentifier": "Autodesk.Fusion" },
-        { "PackageIdentifier": "TeraTermProject.TeraTerm" },
-
-        { "PackageIdentifier": "BambuLab.BambuStudio" },
-        { "PackageIdentifier": "VCGLab.MeshLab" },
-        { "PackageIdentifier": "Inkscape.Inkscape" },
-        { "PackageIdentifier": "GIMP.GIMP" },
-        { "PackageIdentifier": "FireAlpaca.FireAlpaca" },
-        { "PackageIdentifier": "BlackmagicDesign.DaVinciResolve" },
-        { "PackageIdentifier": "Meltytech.Shotcut" },
-        { "PackageIdentifier": "HandBrake.HandBrake" },
-        { "PackageIdentifier": "XMediaRecode.XMediaRecode" },
-        { "PackageIdentifier": "DigiDNA.iMazingHEICConverter" },
-        { "PackageIdentifier": "IrfanSkiljan.IrfanView" },
-        { "PackageIdentifier": "VideoLAN.VLC" },
-        
-        { "PackageIdentifier": "SlackTechnologies.Slack" },
-        { "PackageIdentifier": "Asana.Asana" },
-        { "PackageIdentifier": "Discord.Discord" },
-        { "PackageIdentifier": "Zoom.Zoom" },
-        { "PackageIdentifier": "Notion.Notion" },
-        { "PackageIdentifier": "JohnMacFarlane.Pandoc" },
-        { "PackageIdentifier": "JGraph.Draw" },
-        { "PackageIdentifier": "Microsoft.MicrosoftStickyNotes" },
-        
-        { "PackageIdentifier": "Microsoft.PowerToys" },
-        { "PackageIdentifier": "Microsoft.Sysinternals" },
-        { "PackageIdentifier": "AutoHotkey.AutoHotkey" },
-        { "PackageIdentifier": "AntibodySoftware.WizTree" },
-        { "PackageIdentifier": "voidtools.Everything" },
-        { "PackageIdentifier": "SumatraPDF.SumatraPDF" },
-        { "PackageIdentifier": "7zip.7zip" },
-        { "PackageIdentifier": "WinMerge.WinMerge" },
-        { "PackageIdentifier": "Google.Chrome" },
-        { "PackageIdentifier": "Valve.Steam" },
-
-        { "PackageIdentifier": "Google.NotoSansCJKjp" },
-        { "PackageIdentifier": "Google.NotoSerifCJKjp" },
-        { "PackageIdentifier": "YosukeOta.HackGen" },
-        { "PackageIdentifier": "YosukeOta.HackGen_NF" },
-        { "PackageIdentifier": "Yuru7.UDevGothic" },
-        { "PackageIdentifier": "Playbeing.RictyDiminished" },
-        { "PackageIdentifier": "IndestructibleType.Jost" }
-      ],
-      "sourceDetails": {
-        "argument": "https://cdn.winget.microsoft.com/cache",
-        "identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
-        "name": "winget",
-        "type": "Microsoft.PreIndexed.Package"
-      }
-    }
-  ],
-  "winGetVersion": "1.9.0"
-}{
-  "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "creationDate": "2026-01-20T12:00:00.000Z",
-  "sources": [
-    {
-      "packages": [
-        { "PackageIdentifier": "Microsoft.VisualStudioCode" },
-        { "PackageIdentifier": "Microsoft.VisualStudio.2022.Community" },
-        { "PackageIdentifier": "Notepad++.Notepad++" },
-        { "PackageIdentifier": "Git.Git" },
-        { "PackageIdentifier": "GitHub.GitHubDesktop" },
-        { "PackageIdentifier": "Python.Python.3" },
-        { "PackageIdentifier": "Kitware.CMake" },
-        
-        { "PackageIdentifier": "Arduino.IDE" },
-        { "PackageIdentifier": "STMicroelectronics.STM32CubeIDE" },
-        { "PackageIdentifier": "STMicroelectronics.STM32CubeProgrammer" },
-        { "PackageIdentifier": "KiCad.KiCad" },
-        { "PackageIdentifier": "AnalogDevices.LTspice" },
-        { "PackageIdentifier": "Autodesk.Fusion" },
-        { "PackageIdentifier": "TeraTermProject.TeraTerm" },
-        { "PackageIdentifier": "WerWolv.ImHex" },
-        { "PackageIdentifier": "WinSCP.WinSCP" },
-        { "PackageIdentifier": "RealTerm.RealTerm" },
-        { "PackageIdentifier": "WiresharkFoundation.Wireshark" },
-
-        { "PackageIdentifier": "Prusa3D.PrusaSlicer" },
-        { "PackageIdentifier": "BambuLab.BambuStudio" },
-        { "PackageIdentifier": "VCGLab.MeshLab" },
-        { "PackageIdentifier": "Inkscape.Inkscape" },
-        { "PackageIdentifier": "GIMP.GIMP" },
-        { "PackageIdentifier": "FireAlpaca.FireAlpaca" },
-        { "PackageIdentifier": "BlackmagicDesign.DaVinciResolve" },
-        { "PackageIdentifier": "Meltytech.Shotcut" },
-        { "PackageIdentifier": "HandBrake.HandBrake" },
-        { "PackageIdentifier": "XMediaRecode.XMediaRecode" },
-        { "PackageIdentifier": "DigiDNA.iMazingHEICConverter" },
-        { "PackageIdentifier": "IrfanSkiljan.IrfanView" },
-        { "PackageIdentifier": "VideoLAN.VLC" },
-        { "PackageIdentifier": "NickeManarin.ScreenToGif" },
-        
-        { "PackageIdentifier": "SlackTechnologies.Slack" },
-        { "PackageIdentifier": "Asana.Asana" },
-        { "PackageIdentifier": "Discord.Discord" },
-        { "PackageIdentifier": "Zoom.Zoom" },
-        { "PackageIdentifier": "Notion.Notion" },
-        { "PackageIdentifier": "JohnMacFarlane.Pandoc" },
-        { "PackageIdentifier": "JGraph.Draw" },
-        { "PackageIdentifier": "Obsidian.Obsidian" },
-        { "PackageIdentifier": "Microsoft.MicrosoftStickyNotes" },
-        
-        { "PackageIdentifier": "Microsoft.PowerToys" },
-        { "PackageIdentifier": "Microsoft.Sysinternals" },
-        { "PackageIdentifier": "AutoHotkey.AutoHotkey" },
-        { "PackageIdentifier": "SpeedCrunch.SpeedCrunch" },
-        { "PackageIdentifier": "chrisant996.Clink" },
-        { "PackageIdentifier": "OlegDanilov.RapidEnvironmentEditor" },
-        { "PackageIdentifier": "ThomasNordquist.MQTTExplorer" },
-        { "PackageIdentifier": "Graphviz.Graphviz" },
-        { "PackageIdentifier": "DBeaver.DBeaver" },
-        { "PackageIdentifier": "AntibodySoftware.WizTree" },
-        { "PackageIdentifier": "voidtools.Everything" },
-        { "PackageIdentifier": "SumatraPDF.SumatraPDF" },
-        { "PackageIdentifier": "7zip.7zip" },
-        { "PackageIdentifier": "WinMerge.WinMerge" },
-        { "PackageIdentifier": "Google.Chrome" },
-        { "PackageIdentifier": "Google.Drive" },
-        { "PackageIdentifier": "Valve.Steam" },
-
-        { "PackageIdentifier": "Google.NotoSansCJKjp" },
-        { "PackageIdentifier": "Google.NotoSerifCJKjp" },
-        { "PackageIdentifier": "YosukeOta.HackGen" },
-        { "PackageIdentifier": "YosukeOta.HackGen_NF" },
-        { "PackageIdentifier": "Yuru7.UDevGothic" },
-        { "PackageIdentifier": "Playbeing.RictyDiminished" },
-        { "PackageIdentifier": "IndestructibleType.Jost" }
-      ],
-      "sourceDetails": {
-        "argument": "https://cdn.winget.microsoft.com/cache",
-        "identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
-        "name": "winget",
-        "type": "Microsoft.PreIndexed.Package"
-      }
-    }
-  ],
-  "winGetVersion": "1.9.0"
+{
+
+  "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+
+  "creationDate": "2026-01-20T12:00:00.000Z",
+
+  "sources": [
+
+    {
+
+      "packages": [
+
+        { "PackageIdentifier": "Microsoft.VisualStudioCode" },
+
+        { "PackageIdentifier": "Microsoft.VisualStudio.2026.Community" },
+
+        { "PackageIdentifier": "Notepad++.Notepad++" },
+
+        { "PackageIdentifier": "Git.Git" },
+
+        { "PackageIdentifier": "GitHub.GitHubDesktop" },
+
+        { "PackageIdentifier": "Python.Python.3" },
+
+        { "PackageIdentifier": "Kitware.CMake" },
+
+        
+
+        { "PackageIdentifier": "Arduino.IDE" },
+
+        { "PackageIdentifier": "STMicroelectronics.STM32CubeIDE" ,"PackageVersion": "1.16.1" },
+
+        { "PackageIdentifier": "STMicroelectronics.STM32CubeProgrammer" },
+
+        { "PackageIdentifier": "KiCad.KiCad" ,"PackageVersion": "5.1.12" },
+
+        { "PackageIdentifier": "KiCad.KiCad" ,"PackageVersion": "9.0.7" },
+
+        { "PackageIdentifier": "AnalogDevices.LTspice" },
+
+        { "PackageIdentifier": "Autodesk.Fusion" },
+
+        { "PackageIdentifier": "TeraTermProject.TeraTerm" },
+
+
+
+        { "PackageIdentifier": "BambuLab.BambuStudio" },
+
+        { "PackageIdentifier": "VCGLab.MeshLab" },
+
+        { "PackageIdentifier": "Inkscape.Inkscape" },
+
+        { "PackageIdentifier": "GIMP.GIMP" },
+
+        { "PackageIdentifier": "FireAlpaca.FireAlpaca" },
+
+        { "PackageIdentifier": "BlackmagicDesign.DaVinciResolve" },
+
+        { "PackageIdentifier": "Meltytech.Shotcut" },
+
+        { "PackageIdentifier": "HandBrake.HandBrake" },
+
+        { "PackageIdentifier": "XMediaRecode.XMediaRecode" },
+
+        { "PackageIdentifier": "DigiDNA.iMazingHEICConverter" },
+
+        { "PackageIdentifier": "IrfanSkiljan.IrfanView" },
+
+        { "PackageIdentifier": "VideoLAN.VLC" },
+
+        
+
+        { "PackageIdentifier": "SlackTechnologies.Slack" },
+
+        { "PackageIdentifier": "Asana.Asana" },
+
+        { "PackageIdentifier": "Discord.Discord" },
+
+        { "PackageIdentifier": "Zoom.Zoom" },
+
+        { "PackageIdentifier": "Notion.Notion" },
+
+        { "PackageIdentifier": "JohnMacFarlane.Pandoc" },
+
+        { "PackageIdentifier": "JGraph.Draw" },
+
+        { "PackageIdentifier": "Microsoft.MicrosoftStickyNotes" },
+
+        
+
+        { "PackageIdentifier": "Microsoft.PowerToys" },
+
+        { "PackageIdentifier": "Microsoft.Sysinternals" },
+
+        { "PackageIdentifier": "AutoHotkey.AutoHotkey" },
+
+        { "PackageIdentifier": "AntibodySoftware.WizTree" },
+
+        { "PackageIdentifier": "voidtools.Everything" },
+
+        { "PackageIdentifier": "SumatraPDF.SumatraPDF" },
+
+        { "PackageIdentifier": "7zip.7zip" },
+
+        { "PackageIdentifier": "WinMerge.WinMerge" },
+
+        { "PackageIdentifier": "Google.Chrome" },
+
+        { "PackageIdentifier": "Valve.Steam" },
+
+
+
+        { "PackageIdentifier": "Google.NotoSansCJKjp" },
+
+        { "PackageIdentifier": "Google.NotoSerifCJKjp" },
+
+        { "PackageIdentifier": "YosukeOta.HackGen" },
+
+        { "PackageIdentifier": "YosukeOta.HackGen_NF" },
+
+        { "PackageIdentifier": "Yuru7.UDevGothic" },
+
+        { "PackageIdentifier": "Playbeing.RictyDiminished" },
+
+        { "PackageIdentifier": "IndestructibleType.Jost" }
+
+      ],
+
+      "sourceDetails": {
+
+        "argument": "https://cdn.winget.microsoft.com/cache",
+
+        "identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+
+        "name": "winget",
+
+        "type": "Microsoft.PreIndexed.Package"
+
+      }
+
+    }
+
+  ],
+
+  "winGetVersion": "1.9.0"
+
+}{
+
+  "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+
+  "creationDate": "2026-01-20T12:00:00.000Z",
+
+  "sources": [
+
+    {
+
+      "packages": [
+
+        { "PackageIdentifier": "Microsoft.VisualStudioCode" },
+
+        { "PackageIdentifier": "Microsoft.VisualStudio.2022.Community" },
+
+        { "PackageIdentifier": "Notepad++.Notepad++" },
+
+        { "PackageIdentifier": "Git.Git" },
+
+        { "PackageIdentifier": "GitHub.GitHubDesktop" },
+
+        { "PackageIdentifier": "Python.Python.3" },
+
+        { "PackageIdentifier": "Kitware.CMake" },
+
+        
+
+        { "PackageIdentifier": "Arduino.IDE" },
+
+        { "PackageIdentifier": "STMicroelectronics.STM32CubeIDE" },
+
+        { "PackageIdentifier": "STMicroelectronics.STM32CubeProgrammer" },
+
+        { "PackageIdentifier": "KiCad.KiCad" },
+
+        { "PackageIdentifier": "AnalogDevices.LTspice" },
+
+        { "PackageIdentifier": "Autodesk.Fusion" },
+
+        { "PackageIdentifier": "TeraTermProject.TeraTerm" },
+
+        { "PackageIdentifier": "WerWolv.ImHex" },
+
+        { "PackageIdentifier": "WinSCP.WinSCP" },
+
+        { "PackageIdentifier": "RealTerm.RealTerm" },
+
+        { "PackageIdentifier": "WiresharkFoundation.Wireshark" },
+
+
+
+        { "PackageIdentifier": "Prusa3D.PrusaSlicer" },
+
+        { "PackageIdentifier": "BambuLab.BambuStudio" },
+
+        { "PackageIdentifier": "VCGLab.MeshLab" },
+
+        { "PackageIdentifier": "Inkscape.Inkscape" },
+
+        { "PackageIdentifier": "GIMP.GIMP" },
+
+        { "PackageIdentifier": "FireAlpaca.FireAlpaca" },
+
+        { "PackageIdentifier": "BlackmagicDesign.DaVinciResolve" },
+
+        { "PackageIdentifier": "Meltytech.Shotcut" },
+
+        { "PackageIdentifier": "HandBrake.HandBrake" },
+
+        { "PackageIdentifier": "XMediaRecode.XMediaRecode" },
+
+        { "PackageIdentifier": "DigiDNA.iMazingHEICConverter" },
+
+        { "PackageIdentifier": "IrfanSkiljan.IrfanView" },
+
+        { "PackageIdentifier": "VideoLAN.VLC" },
+
+        { "PackageIdentifier": "NickeManarin.ScreenToGif" },
+
+        
+
+        { "PackageIdentifier": "SlackTechnologies.Slack" },
+
+        { "PackageIdentifier": "Asana.Asana" },
+
+        { "PackageIdentifier": "Discord.Discord" },
+
+        { "PackageIdentifier": "Zoom.Zoom" },
+
+        { "PackageIdentifier": "Notion.Notion" },
+
+        { "PackageIdentifier": "JohnMacFarlane.Pandoc" },
+
+        { "PackageIdentifier": "JGraph.Draw" },
+
+        { "PackageIdentifier": "Obsidian.Obsidian" },
+
+        { "PackageIdentifier": "Microsoft.MicrosoftStickyNotes" },
+
+        
+
+        { "PackageIdentifier": "Microsoft.PowerToys" },
+
+        { "PackageIdentifier": "Microsoft.Sysinternals" },
+
+        { "PackageIdentifier": "AutoHotkey.AutoHotkey" },
+
+        { "PackageIdentifier": "SpeedCrunch.SpeedCrunch" },
+
+        { "PackageIdentifier": "chrisant996.Clink" },
+
+        { "PackageIdentifier": "OlegDanilov.RapidEnvironmentEditor" },
+
+        { "PackageIdentifier": "ThomasNordquist.MQTTExplorer" },
+
+        { "PackageIdentifier": "Graphviz.Graphviz" },
+
+        { "PackageIdentifier": "DBeaver.DBeaver" },
+
+        { "PackageIdentifier": "AntibodySoftware.WizTree" },
+
+        { "PackageIdentifier": "voidtools.Everything" },
+
+        { "PackageIdentifier": "SumatraPDF.SumatraPDF" },
+
+        { "PackageIdentifier": "7zip.7zip" },
+
+        { "PackageIdentifier": "WinMerge.WinMerge" },
+
+        { "PackageIdentifier": "Google.Chrome" },
+
+        { "PackageIdentifier": "Google.Drive" },
+
+        { "PackageIdentifier": "Valve.Steam" },
+
+
+
+        { "PackageIdentifier": "Google.NotoSansCJKjp" },
+
+        { "PackageIdentifier": "Google.NotoSerifCJKjp" },
+
+        { "PackageIdentifier": "YosukeOta.HackGen" },
+
+        { "PackageIdentifier": "YosukeOta.HackGen_NF" },
+
+        { "PackageIdentifier": "Yuru7.UDevGothic" },
+
+        { "PackageIdentifier": "Playbeing.RictyDiminished" },
+
+        { "PackageIdentifier": "IndestructibleType.Jost" }
+
+      ],
+
+      "sourceDetails": {
+
+        "argument": "https://cdn.winget.microsoft.com/cache",
+
+        "identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+
+        "name": "winget",
+
+        "type": "Microsoft.PreIndexed.Package"
+
+      }
+
+    }
+
+  ],
+
+  "winGetVersion": "1.9.0"
+
 }
