@@ -2,68 +2,68 @@
 setlocal enabledelayedexpansion
 
 :: ==========================================
-:: 1. ç®¡ç†è€…æ¨©é™ãƒã‚§ãƒƒã‚¯
+:: 1. ŠÇ—ŽÒŒ ŒÀƒ`ƒFƒbƒN
 :: ==========================================
 openfiles >nul 2>&1
 if %errorlevel% neq 0 (
     echo.
-    echo [ERROR] ç®¡ç†è€…æ¨©é™ãŒå¿…è¦ã§ã™ã€‚
-    echo ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’å³ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã€Œç®¡ç†è€…ã¨ã—ã¦å®Ÿè¡Œã€ã—ã¦ãã ã•ã„ã€‚
+    echo [ERROR] ŠÇ—ŽÒŒ ŒÀ‚ª•K—v‚Å‚·B
+    echo ƒoƒbƒ`ƒtƒ@ƒCƒ‹‚ð‰EƒNƒŠƒbƒN‚µ‚ÄuŠÇ—ŽÒ‚Æ‚µ‚ÄŽÀsv‚µ‚Ä‚­‚¾‚³‚¢B
     echo.
     pause
     exit /b
 )
 
 echo ==========================================
-echo  ã‚¨ãƒ³ã‚¸ãƒ‹ã‚¢å‘ã‘ Windowsç’°å¢ƒæ§‹ç¯‰ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
-echo  - Dynamic Drawã¯æ‰‹å‹•ã§ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ãã ã•ã„
-echo  - SolidWorksç­‰ã¯æ‰‹å‹•ã§ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ãã ã•ã„
+echo  ƒGƒ“ƒWƒjƒAŒü‚¯ WindowsŠÂ‹«\’zƒXƒNƒŠƒvƒg
+echo  - Dynamic Draw‚ÍŽè“®‚ÅƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚­‚¾‚³‚¢
+echo  - SolidWorks“™‚ÍŽè“®‚ÅƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚­‚¾‚³‚¢
 echo ==========================================
 echo.
 
-:: JSONãƒ•ã‚¡ã‚¤ãƒ«ã®å­˜åœ¨ç¢ºèª
+:: JSONƒtƒ@ƒCƒ‹‚Ì‘¶ÝŠm”F
 if not exist "myapps.json" (
-    echo [ERROR] "myapps.json" ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚
+    echo [ERROR] "myapps.json" ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñB
     pause
     exit /b
 )
 
 :: ==========================================
-:: 2. ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰è¨­å®š (CapsLockã®ã¿ãƒ¬ã‚¸ã‚¹ãƒˆãƒªæŽ¨å¥¨)
+:: 2. ƒL[ƒ{[ƒhÝ’è (CapsLock‚Ì‚ÝƒŒƒWƒXƒgƒŠ„§)
 :: ==========================================
-echo [KeyMap] CapsLockã‚’Ctrlã«å¤‰æ›´ã—ã¾ã™(ãƒ¬ã‚¸ã‚¹ãƒˆãƒªå¤‰æ›´)...
+echo [KeyMap] CapsLock‚ðCtrl‚É•ÏX‚µ‚Ü‚·(ƒŒƒWƒXƒgƒŠ•ÏX)...
 :: Scancode Map: CapsLock(0x3A) -> LeftCtrl(0x1D)
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map" /t REG_BINARY /d 0000000000000000020000001d003a0000000000 /f >nul
 
 :: ==========================================
-:: 3. Windowsè¨­å®šã®æœ€é©åŒ–
+:: 3. WindowsÝ’è‚ÌÅ“K‰»
 :: ==========================================
-echo [Setting] ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ãƒ¼è¨­å®šã‚’å¤‰æ›´ä¸­...
-:: æ‹¡å¼µå­ã‚’è¡¨ç¤º
+echo [Setting] ƒGƒNƒXƒvƒ[ƒ‰[Ý’è‚ð•ÏX’†...
+:: Šg’£Žq‚ð•\Ž¦
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f >nul
-:: éš ã—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¡¨ç¤º
+:: ‰B‚µƒtƒ@ƒCƒ‹‚ð•\Ž¦
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f >nul
-:: èµ·å‹•æ™‚ã«ã€ŒPCã€ã‚’é–‹ã
+:: ‹N“®Žž‚ÉuPCv‚ðŠJ‚­
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f >nul
 
-echo [Setting] å³ã‚¯ãƒªãƒƒã‚¯ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’æ—§ä»•æ§˜(ãƒ•ãƒ«è¡¨ç¤º)ã«å¤‰æ›´ä¸­...
+echo [Setting] ‰EƒNƒŠƒbƒNƒƒjƒ…[‚ð‹ŒŽd—l(ƒtƒ‹•\Ž¦)‚É•ÏX’†...
 reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul
 
-echo [Setting] ãƒ€ãƒ¼ã‚¯ãƒ¢ãƒ¼ãƒ‰ã‚’æœ‰åŠ¹åŒ–ä¸­...
-:: ã‚¢ãƒ—ãƒªã®ãƒ€ãƒ¼ã‚¯ãƒ¢ãƒ¼ãƒ‰
+echo [Setting] ƒ_[ƒNƒ‚[ƒh‚ð—LŒø‰»’†...
+:: ƒAƒvƒŠ‚Ìƒ_[ƒNƒ‚[ƒh
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "AppsUseLightTheme" /t REG_DWORD /d 0 /f >nul
-:: ã‚·ã‚¹ãƒ†ãƒ (ã‚¿ã‚¹ã‚¯ãƒãƒ¼ç­‰)ã®ãƒ€ãƒ¼ã‚¯ãƒ¢ãƒ¼ãƒ‰
+:: ƒVƒXƒeƒ€(ƒ^ƒXƒNƒo[“™)‚Ìƒ_[ƒNƒ‚[ƒh
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "SystemUsesLightTheme" /t REG_DWORD /d 0 /f >nul
 
-echo [Setting] ã‚¿ã‚¹ã‚¯ãƒãƒ¼ã¨ã‚¹ã‚¿ãƒ¼ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’èª¿æ•´ä¸­...
-:: ã‚¿ã‚¹ã‚¯ãƒãƒ¼å·¦æƒãˆ
+echo [Setting] ƒ^ƒXƒNƒo[‚ÆƒXƒ^[ƒgƒƒjƒ…[‚ð’²®’†...
+:: ƒ^ƒXƒNƒo[¶‘µ‚¦
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarAl" /t REG_DWORD /d 0 /f >nul
-:: Webæ¤œç´¢ç„¡åŠ¹åŒ–
+:: WebŒŸõ–³Œø‰»
 reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "DisableSearchBoxSuggestions" /t REG_DWORD /d 1 /f >nul
-:: ã‚¹ã‚¿ãƒ¼ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ã€ŒãŠã™ã™ã‚ã€ã‚’æœ€å°åŒ–ï¼ˆå®Œå…¨ã«æ¶ˆã™ã«ã¯ExplorerPatcherç­‰ãŒå¿…è¦ï¼‰
+:: ƒXƒ^[ƒgƒƒjƒ…[‚Ìu‚¨‚·‚·‚ßv‚ðÅ¬‰»iŠ®‘S‚ÉÁ‚·‚É‚ÍExplorerPatcher“™‚ª•K—vj
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_Layout" /t REG_DWORD /d 1 /f >nul
 
-echo [Setting] ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã«ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚’ä½œæˆä¸­...
+echo [Setting] ƒfƒXƒNƒgƒbƒv‚ÉƒVƒ‡[ƒgƒJƒbƒg‚ðì¬’†...
 powershell -NoProfile -Command ^
   "$ws = New-Object -ComObject WScript.Shell; ^
    $s = $ws.CreateShortcut('%USERPROFILE%\Desktop\DeviceManager.lnk'); ^
@@ -71,27 +71,27 @@ powershell -NoProfile -Command ^
    $s2 = $ws.CreateShortcut('%USERPROFILE%\Desktop\ControlPanel.lnk'); ^
    $s2.TargetPath = 'control.exe'; $s2.Save();"
 
-echo [Setting] è¨­å®šå¤‰æ›´å®Œäº†ã€‚
+echo [Setting] Ý’è•ÏXŠ®—¹B
 
 :: ==========================================
-:: 4. ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ä¸€æ‹¬ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+:: 4. ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌˆêŠ‡ƒCƒ“ƒXƒg[ƒ‹
 :: ==========================================
 echo.
-echo [Install] ã‚¢ãƒ—ãƒªã¨ãƒ•ã‚©ãƒ³ãƒˆã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¾ã™...
-echo â€»æ™‚é–“ãŒã‹ã‹ã‚Šã¾ã™ã€‚ç”»é¢ã‚’é–‰ã˜ãªã„ã§ãã ã•ã„ã€‚
+echo [Install] ƒAƒvƒŠ‚ÆƒtƒHƒ“ƒg‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ü‚·...
+echo ¦ŽžŠÔ‚ª‚©‚©‚è‚Ü‚·B‰æ–Ê‚ð•Â‚¶‚È‚¢‚Å‚­‚¾‚³‚¢B
 echo.
 
 winget import --import-file "engineer_apps.json" --accept-package-agreements --accept-source-agreements
 
-:: ä»˜ç®‹ã‚’èµ·å‹•ã—ã¦ã¿ã‚‹ï¼ˆã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ç¢ºèªï¼‰
+:: •tâ³‚ð‹N“®‚µ‚Ä‚Ý‚éiƒCƒ“ƒXƒg[ƒ‹Šm”Fj
 echo.
-echo [Post-Install] ä»˜ç®‹ã‚¢ãƒ—ãƒªã‚’èµ·å‹•ã—ã¾ã™...
+echo [Post-Install] •tâ³ƒAƒvƒŠ‚ð‹N“®‚µ‚Ü‚·...
 start shell:AppsFolder\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe!App
 
 echo.
 echo ==========================================
-echo  ã™ã¹ã¦ã®å‡¦ç†ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
-echo  å³ã‚¯ãƒªãƒƒã‚¯ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãªã©ã‚’åæ˜ ã•ã›ã‚‹ãŸã‚ã€
-echo  å¿…ãšã€PCã‚’å†èµ·å‹•ã€‘ã—ã¦ãã ã•ã„ã€‚
+echo  ‚·‚×‚Ä‚Ìˆ—‚ªŠ®—¹‚µ‚Ü‚µ‚½B
+echo  ‰EƒNƒŠƒbƒNƒƒjƒ…[‚È‚Ç‚ð”½‰f‚³‚¹‚é‚½‚ßA
+echo  •K‚¸yPC‚ðÄ‹N“®z‚µ‚Ä‚­‚¾‚³‚¢B
 echo ==========================================
 pause
