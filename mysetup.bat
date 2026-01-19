@@ -63,7 +63,7 @@ reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "DisableSearchBox
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_Layout" /t REG_DWORD /d 1 /f >nul
 
 echo [Setting] Creating Shortcuts...
-powershell -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%USERPROFILE%\Desktop\DeviceManager.lnk'); $s.TargetPath = 'devmgmt.msc'; $s.Save(); $s2 = $ws.CreateShortcut('%USERPROFILE%\Desktop\ControlPanel.lnk');sss  $s2.TargetPath = 'control.exe'; $s2.Save();"
+powershell -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%USERPROFILE%\Desktop\DeviceManager.lnk'); $s.TargetPath = 'devmgmt.msc'; $s.Save(); $s2 = $ws.CreateShortcut('%USERPROFILE%\Desktop\ControlPanel.lnk'); $s2.TargetPath = 'control.exe'; $s2.Save();"
 
 :: ==========================================
 :: 4. Install Applications
