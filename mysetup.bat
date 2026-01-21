@@ -101,7 +101,8 @@ choco install kicad --version 9.0.7 -y
 echo.
 echo [Install Fonts] Installing Fonts...
 choco install -y google-noto-sans-cjk-jp google-noto-serif-cjk-jp
-choco install -y hackgen-nf udev-gothic ricty-diminished
+choco install -y font-hackgen font-firge myrica jetbrainsmono source-han-code-jp
+choco install -y fonts-ricty-diminished fonts-ricty
 choco install -y jost
 
 :: ==========================================
