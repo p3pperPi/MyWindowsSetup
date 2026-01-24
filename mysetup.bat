@@ -29,11 +29,21 @@ if not exist "myapps.json" (
 )
 
 :: ==========================================
-:: 2. Keyboard Settings (Registry)
+:: 2. System Settings (Registry)
 :: ==========================================
+echo [Setting] Disabling Fast Startup...
+powercfg /h off
+
 echo [KeyMap] Changing CapsLock to Ctrl (Registry)...
 :: Scancode Map: CapsLock(0x3A) -> LeftCtrl(0x1D)
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map" /t REG_BINARY /d 0000000000000000020000001d003a0000000000 /f >nul
+
+echo [Setting] Disabling Windows Ads & Suggestions...
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338388Enabled" /t REG_DWORD /d 0 /f >nul
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338393Enabled" /t REG_DWORD /d 0 /f >nul
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SoftLandingEnabled" /t REG_DWORD /d 0 /f >nul
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSyncProviderNotifications" /t REG_DWORD /d 0 /f >nul
+
 
 :: ==========================================
 :: 3. Windows Settings Optimization
@@ -76,20 +86,26 @@ echo.
 winget import --import-file "myapps.json" --accept-package-agreements --accept-source-agreements
 
 echo.
-echo [Install 1/4] Installing Microsoft Sticky Notes...
+echo Installing Sticky Notes ...
 winget install --id 9NBLGGH4QGHW --source msstore --accept-package-agreements
 
+:: HEIF & HEVC Extensions
+echo.
+echo Installing HEIF/HEVC Extensions (Store)...
+echo Note: Installing "HEVC Video Extensions from Device Manufacturer" (Free version)
+winget install --id 9PMMSR1CGPWG --source msstore --accept-package-agreements
+winget install --id 9N4WGH0Z6VHQ --source msstore --accept-package-agreements
 
 :: ==========================================
 :: 5. Install Application by Chocolatey 
 :: ==========================================
 echo.
-echo [Install 3/5] Installing Chocolatey...
+echo Installing Chocolatey...
 powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
 set "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 echo.
-echo [Install 4/5] Installing Dev Tools via Chocolatey...
+echo Installing Dev Tools via Chocolatey...
 choco install -y python3 arduino gimp inkscape firealpaca meshlab sysinternals
 
 echo.
@@ -106,11 +122,18 @@ choco install -y fonts-ricty-diminished fonts-ricty
 choco install -y jost
 
 :: ==========================================
-:: 5. Manual Install Helper
+:: 6. File Association (Notepad++ for .txt)
 :: ==========================================
 echo.
-echo [Install 5/5] Opening Download Pages for Login-Required Apps...
+echo [Config] Setting Notepad++ as default for .txt...
+ftype txtfile="C:\Program Files\Notepad++\notepad++.exe" "%%1"
+assoc .txt=txtfile
+
+:: ==========================================
+:: 7. Manual Install Helper
+:: ==========================================
 echo.
+echo  Opening Download Pages for Login-Required Apps...
 
 :: STM32 & Fusion
 start https://www.st.com/en/development-tools/stm32cubeide.html
@@ -129,9 +152,7 @@ echo ==========================================
 echo  All Setup Completed!
 echo.
 echo  [IMPORTANT]
-echo  1. Please install opened web pages (STM32, Fusion) manually.
-echo  2. RESTART your PC to apply settings.
-echo  3. Open "PowerToys" -> "Keyboard Manager"
-echo     to set Ctrl+Space for IME toggle manually.
+echo  1. Please RESTART your PC to apply Registry/FastStartup settings.
+echo  2. Open "PowerToys" -> "Keyboard Manager" for Ctrl+Space toggle.
 echo ==========================================
 pause

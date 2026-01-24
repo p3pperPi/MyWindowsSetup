@@ -27,14 +27,18 @@
         { "PackageIdentifier": "JohnMacFarlane.Pandoc" },
         { "PackageIdentifier": "JGraph.Draw" },
         { "PackageIdentifier": "Microsoft.PowerToys" },
+        { "PackageIdentifier": "SmartBear.DevToys" },
         { "PackageIdentifier": "AutoHotkey.AutoHotkey" },
         { "PackageIdentifier": "AntibodySoftware.WizTree" },
         { "PackageIdentifier": "voidtools.Everything" },
         { "PackageIdentifier": "SumatraPDF.SumatraPDF" },
+        { "PackageIdentifier": "Adobe.Acrobat.Reader.64-bit" },
         { "PackageIdentifier": "7zip.7zip" },
         { "PackageIdentifier": "WinMerge.WinMerge" },
         { "PackageIdentifier": "Google.Chrome" },
-        { "PackageIdentifier": "Valve.Steam" }
+        { "PackageIdentifier": "Valve.Steam" },
+        { "PackageIdentifier": "Nvidia.NvidiaApp" },
+        { "PackageIdentifier": "Microsoft.3DViewer" }
       ],
       "SourceDetails": {
         "Argument": "https://cdn.winget.microsoft.com/cache",
