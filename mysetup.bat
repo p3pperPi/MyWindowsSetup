@@ -15,18 +15,10 @@ if %errorlevel% neq 0 (
 )
 
 echo ==========================================
-echo  Engineer PC Setup Script
-echo  - CapsLock -> Ctrl (Registry)
-echo  - Please set IME toggle (Ctrl+Space) in PowerToys later.
+echo  Engineer PC Setup Script (Interactive Mode)
+echo  - Installers will require user input
 echo ==========================================
 echo.
-
-:: Check JSON file
-if not exist "myapps.json" (
-    echo [ERROR] "myapps.json" not found.
-    pause
-    exit /b
-)
 
 :: ==========================================
 :: 2. System Settings (Registry)
@@ -83,10 +75,50 @@ echo [Install] Installing apps and fonts via Winget...
 echo * Please do not close this window.
 echo.
 
-winget import --import-file "myapps.json" --accept-package-agreements --accept-source-agreements
+:: App List
+set WINGET_APPS=^
+ Microsoft.VisualStudioCode ^
+ Microsoft.VisualStudio.2022.Community ^
+ Notepad++.Notepad++ ^
+ Git.Git ^
+ GitHub.GitHubDesktop ^
+ Kitware.CMake ^
+ AnalogDevices.LTspice ^
+ TeraTermProject.TeraTerm ^
+ BambuLab.BambuStudio ^
+ Meltytech.Shotcut ^
+ HandBrake.HandBrake ^
+ XMediaRecode.XMediaRecode ^
+ DigiDNA.iMazingHEICConverter ^
+ IrfanSkiljan.IrfanView ^
+ VideoLAN.VLC ^
+ SlackTechnologies.Slack ^
+ Asana.Asana ^
+ Discord.Discord ^
+ Zoom.Zoom ^
+ Notion.Notion ^
+ JohnMacFarlane.Pandoc ^
+ JGraph.Draw ^
+ Microsoft.PowerToys ^
+ AutoHotkey.AutoHotkey ^
+ AntibodySoftware.WizTree ^
+ voidtools.Everything ^
+ SumatraPDF.SumatraPDF ^
+ Adobe.Acrobat.Reader.64-bit ^
+ 7zip.7zip ^
+ WinMerge.WinMerge ^
+ Google.Chrome ^
+ Valve.Steam
 
+:: install apps
+for %%I in (%WINGET_APPS%) do (
+    echo Installing: %%I
+    winget install --id %%I --interactive --accept-package-agreements --accept-source-agreements
+)
+
+:: Store Apps
 echo.
-echo Installing Sticky Notes ...
+echo Installing Store Apps...
 winget install --id 9NBLGGH4QGHW --source msstore --accept-package-agreements
 
 :: HEIF & HEVC Extensions
@@ -105,8 +137,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.
 set "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 echo.
-echo Installing Dev Tools via Chocolatey...
-choco install -y python3 arduino gimp inkscape firealpaca meshlab sysinternals
+echo Installing Dev Tools via Chocolatey (Interactive)...
+choco install --notsilent python3 arduino gimp inkscape firealpaca meshlab sysinternals
 
 echo.
 echo [Install KiCad] Installing versions 5.1.12 and 9.0.7...
