@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 :: ==========================================
-:: 1. Check Administrator Privileges
+:: Check Administrator Privileges
 :: ==========================================
 openfiles >nul 2>&1
 if %errorlevel% neq 0 (
@@ -20,161 +20,18 @@ echo  - Installers will require user input
 echo ==========================================
 echo.
 
-:: ==========================================
-:: 2. System Settings (Registry)
-:: ==========================================
-echo [Setting] Disabling Fast Startup...
-powercfg /h off
-
-echo [KeyMap] Changing CapsLock to Ctrl (Registry)...
-:: Scancode Map: CapsLock(0x3A) -> LeftCtrl(0x1D)
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout" /v "Scancode Map" /t REG_BINARY /d 0000000000000000020000001d003a0000000000 /f >nul
-
-echo [Setting] Disabling Windows Ads and Suggestions...
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338388Enabled" /t REG_DWORD /d 0 /f >nul
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338393Enabled" /t REG_DWORD /d 0 /f >nul
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SoftLandingEnabled" /t REG_DWORD /d 0 /f >nul
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSyncProviderNotifications" /t REG_DWORD /d 0 /f >nul
-
+:: Change to scripts directory
+cd /d "%~dp0scripts"
 
 :: ==========================================
-:: 3. Windows Settings Optimization
+:: Run each section
 :: ==========================================
-echo [Setting] Optimizing Explorer settings...
-:: Show extensions
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f >nul
-:: Show hidden files
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f >nul
-:: Launch to "This PC"
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f >nul
-:: Restore old context menu
-reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve >nul
-
-echo [Setting] Enabling Dark Mode...
-:: Apps
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "AppsUseLightTheme" /t REG_DWORD /d 0 /f >nul
-:: System
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "SystemUsesLightTheme" /t REG_DWORD /d 0 /f >nul
-
-echo [Setting] Adjusting Taskbar and Start Menu...
-:: Taskbar Alignment (Left)
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarAl" /t REG_DWORD /d 0 /f >nul
-:: Disable Web Search
-reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "DisableSearchBoxSuggestions" /t REG_DWORD /d 1 /f >nul
-:: Minimize Recommendations
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_Layout" /t REG_DWORD /d 1 /f >nul
-:: Disable Task View Button
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowTaskViewButton" /t REG_DWORD /d 0 /f >nul
-:: Disable Widgets (Weather/News)
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarDa" /t REG_DWORD /d 0 /f >nul
-
-echo [Setting] Creating Shortcuts...
-powershell -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%USERPROFILE%\Desktop\DeviceManager.lnk'); $s.TargetPath = 'devmgmt.msc'; $s.Save(); $s2 = $ws.CreateShortcut('%USERPROFILE%\Desktop\ControlPanel.lnk'); $s2.TargetPath = 'control.exe'; $s2.Save();"
-
-:: ==========================================
-:: 4. Install Applications by Winget
-:: ==========================================
-echo.
-echo [Install] Installing apps and fonts via Winget...
-echo * Please do not close this window.
-echo.
-
-:: App List
-set WINGET_APPS=^
- Microsoft.VisualStudioCode ^
- Microsoft.VisualStudio.2022.Community ^
- Notepad++.Notepad++ ^
- Git.Git ^
- GitHub.GitHubDesktop ^
- Kitware.CMake ^
- AnalogDevices.LTspice ^
- TeraTermProject.TeraTerm ^
- BambuLab.BambuStudio ^
- Meltytech.Shotcut ^
- HandBrake.HandBrake ^
- XMediaRecode.XMediaRecode ^
- DigiDNA.iMazingHEICConverter ^
- IrfanSkiljan.IrfanView ^
- VideoLAN.VLC ^
- SlackTechnologies.Slack ^
- Asana.Asana ^
- Discord.Discord ^
- Zoom.Zoom ^
- Notion.Notion ^
- JohnMacFarlane.Pandoc ^
- JGraph.Draw ^
- Microsoft.PowerToys ^
- AutoHotkey.AutoHotkey ^
- AntibodySoftware.WizTree ^
- voidtools.Everything ^
- SumatraPDF.SumatraPDF ^
- Adobe.Acrobat.Reader.64-bit ^
- 7zip.7zip ^
- WinMerge.WinMerge ^
- Google.Chrome ^
- Valve.Steam
-
-:: install apps
-for %%I in (%WINGET_APPS%) do (
-    echo Installing: %%I
-    winget install --id %%I --interactive --accept-package-agreements --accept-source-agreements
-)
-
-:: Store Apps
-echo.
-echo Installing Store Apps...
-winget install --id 9NBLGGH4QGHW --source msstore --accept-package-agreements
-
-:: HEIF & HEVC Extensions
-echo.
-echo Installing HEIF/HEVC Extensions (Store)...
-echo Note: Installing "HEVC Video Extensions from Device Manufacturer" (Free version)
-winget install --id 9PMMSR1CGPWG --source msstore --accept-package-agreements
-winget install --id 9N4WGH0Z6VHQ --source msstore --accept-package-agreements
-
-:: ==========================================
-:: 5. Install Application by Chocolatey 
-:: ==========================================
-echo.
-echo Installing Chocolatey...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
-set "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-
-echo.
-echo Installing Dev Tools via Chocolatey (Interactive)...
-choco install --notsilent python3 arduino gimp inkscape firealpaca meshlab sysinternals
-
-echo.
-echo [Install KiCad] Installing versions 5.1.12 and 9.0.7...
-choco install kicad --version 5.1.12 -y
-choco install kicad --version 9.0.7 -y
-
-:: Fonts
-echo.
-echo [Install Fonts] Installing Fonts...
-choco install -y google-noto-sans-cjk-jp google-noto-serif-cjk-jp
-choco install -y font-hackgen font-firge myrica jetbrainsmono source-han-code-jp
-choco install -y fonts-ricty-diminished fonts-ricty
-choco install -y jost
-
-:: ==========================================
-:: 6. File Association (Notepad++ for .txt)
-:: ==========================================
-echo.
-echo [Config] Setting Notepad++ as default for .txt...
-ftype txtfile="C:\Program Files\Notepad++\notepad++.exe" "%%1"
-assoc .txt=txtfile
-
-:: ==========================================
-:: 7. Manual Install Helper
-:: ==========================================
-echo.
-echo  Opening Download Pages for Login-Required Apps...
-
-:: STM32 & Fusion
-start https://www.st.com/en/development-tools/stm32cubeide.html
-start https://www.st.com/en/development-tools/stm32cubeprog.html
-start https://www.autodesk.com/products/fusion-360/personal
+call 01_system_settings.bat /auto
+call 02_windows_optimize.bat /auto
+call 03_install_winget.bat /auto
+call 04_install_choco.bat /auto
+call 05_file_association.bat /auto
+call 06_manual_install.bat /auto
 
 :: ==========================================
 :: Completion
