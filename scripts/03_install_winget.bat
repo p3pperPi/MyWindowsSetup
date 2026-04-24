@@ -11,10 +11,29 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-echo ==========================================
-echo  [3/6] Install Applications via Winget
-echo  * Please do not close this window.
-echo ==========================================
+:: Parse flags (/auto: skip pause, /silent: no installer dialogs)
+set AUTO=0
+set SILENT=0
+for %%A in (%*) do (
+    if /i "%%A"=="/auto"   set AUTO=1
+    if /i "%%A"=="/silent" set SILENT=1
+)
+
+if "%SILENT%"=="1" (
+    set INSTALL_MODE=--silent
+    echo ==========================================
+    echo  [3/6] Install Applications via Winget
+    echo  Mode: Silent (no dialogs)
+    echo  * Please do not close this window.
+    echo ==========================================
+) else (
+    set INSTALL_MODE=--interactive
+    echo ==========================================
+    echo  [3/6] Install Applications via Winget
+    echo  Mode: Interactive (dialogs will appear)
+    echo  * Please do not close this window.
+    echo ==========================================
+)
 echo.
 
 set WINGET_APPS=^
@@ -53,7 +72,7 @@ set WINGET_APPS=^
 
 for %%I in (%WINGET_APPS%) do (
     echo Installing: %%I
-    winget install --id %%I --interactive --accept-package-agreements --accept-source-agreements
+    winget install --id %%I %INSTALL_MODE% --accept-package-agreements --accept-source-agreements
 )
 
 echo.
@@ -69,4 +88,4 @@ winget install --id 9N4WGH0Z6VHQ --source msstore --accept-package-agreements
 echo.
 echo [3/6] Winget Install Done.
 echo.
-if /i not "%1"=="/auto" pause
+if "%AUTO%"=="0" pause
